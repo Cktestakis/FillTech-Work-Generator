@@ -215,21 +215,92 @@ const internInfo = () => {
 
             {
                 type: "input",
-                message: "Please enter the intern's GitHub Username: ",
-                name: "github",
-                validate: userGithub => {
-                    if (userGithub) {
+                message: "Please enter the intern's school name!: ",
+                name: "shool",
+                validate: userSchool => {
+                    if (userSchool) {
                         return true;
                     } else {
-                        console.log("Must enter Github username!")
+                        console.log("Must enter a school name!")
                         return false;
                     }
                 }
             },
-        ]).then(function({name, id, email, github}) {
+        ]).then(function({name, id, email, school}) {
             let teamIntern;
-            teamIntern = new Intern(name, id, email, github);
+            teamIntern = new Intern(name, id, email, school);
             team.push(teamIntern);
             choice();
         });
+}
+
+//GENERATE BOOTSTRAP FUNCTION FOR ROLE
+
+const generateCards = (emp) => {
+	if (emp.getRole() === 'Manager') {
+		return `
+				<div class="card" style="width: 19rem;">
+					<div class="card-header">
+						<h3>${emp.name}</h3>
+						<h5><i class="fas fa-coffee"></i> Manager</h5>
+					</div>
+					<div class="card-body">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">ID: ${emp.id}</li>
+							<li class="list-group-item">Email: </br><a href = 'mailto: ${emp.email}'>${emp.email}</a></li>
+							<li class="list-group-item">Phone: ${emp.officeNumber}</li>
+						</ul>
+					</div>
+				</div>
+		`
+	}
+	if (emp.getRole() === 'Engineer') {
+		return `
+				<div class="card" style="width: 19rem;">
+					<div class="card-header">
+						<h3>${emp.name}</h3>
+						<h5><i class="fas fa-glasses"></i> Engineer</h5>
+					</div>
+					<div class="card-body">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">ID: ${emp.id}</li>
+							<li class="list-group-item">Email: </br><a href = 'mailto: ${emp.email}'>${emp.email}</a></li>
+							<li class="list-group-item">GitHub: <a href='https://github.com/${emp.github}'>${emp.github}</a></li>
+						</ul>
+					</div>	
+				</div>
+		`
+	}
+	if (emp.getRole() === 'Intern') {
+		return `
+					<div class="card" style="width: 19rem;">
+						<div class="card-header">
+							<h3>${emp.name}</h3>
+							<h5><i class="fas fa-user-graduate"></i> Intern</h5>
+						</div>
+						<div class="card-body">
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">ID: ${emp.id}</li>
+								<li class="list-group-item">Email: </br><a href = 'mailto: ${emp.email}'>${emp.email}</a></li>
+								<li class="list-group-item">School: ${emp.school}</li>
+							</ul>
+						</div>	
+					</div>
+		`
+	}
+
+}
+
+// FUNCTION END WHEN USER SELECTS NOT TO ADD ANYMORE EMPLOYEES
+const noMore = () => {
+	const teamArray = team;
+	let employeeCards = "";
+	
+	for (i in teamArray) {
+		const emp = teamArray[i];
+		employeeCards += generateCards(emp);
+	}
+	const finalTeam = render(employeeCards);
+	
+	fs.writeFileSync('./dist/team.html', finalTeam)
 }
