@@ -11,6 +11,7 @@ const team = [];
 const begin = [
     {
         type: "input",
+        message: "What is the Team Manager's Name?: ",
         name: "name",
         validate: userName => {
             if (userName) {
@@ -303,4 +304,6 @@ const noMore = () => {
 	const finalTeam = render(employeeCards);
 	
 	fs.writeFileSync('./dist/team.html', finalTeam)
+
+    console.log(`Success. Output will be under the ./dist folder!`)
 }
