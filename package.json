@@ -1,0 +1,29 @@
+{
+  "name": "FillTech-Work-Generator",
+  "version": "1.0.0",
+  "description": "Team Profile Generator to create employee cards based on user input.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.2.5"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cktestakis/FillTech-Work-Generator.git"
+  },
+  "author": "Cody Ktestakis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cktestakis/FillTech-Work-Generator"
+  },
+  "homepage": "https://github.com/Cktestakis/FillTech-Work-Generator/blob/main/README.md"
+}
