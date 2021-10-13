@@ -7,16 +7,16 @@ test("Can instantiate employee instance", () => {
     expect(typeof(emp)).toBe("object");
 })
 
-test("Can set employee name using constructor", () => {
+test("Can set Employee name using constructor", () => {
     const name = "Jennifer";
-    const emp = new "Employee"(name);
+    const emp = new Employee(name);
     expect(emp.name).toBe(name);
 })
 
 test("Can set employee id using Employee constructor", () => {
-    const id = "222";
+    const id = 222;
     const emp = new Employee("Jennifer", 222);
-    expect(emp.name).toBe(id);
+    expect(emp.id).toBe(id);
 })
 
 test("Can set employee email using Employee constructor", () => {
@@ -30,4 +30,3 @@ test("Can set employee role using Employee constructor", () => {
     const emp = new Employee("Jennifer", 222, "jennifermalaga@gmail.com", role);
     expect(emp.role).toBe(role);
 })
-
