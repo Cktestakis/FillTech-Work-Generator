@@ -217,7 +217,7 @@ const internInfo = () => {
             {
                 type: "input",
                 message: "Please enter the intern's school name!: ",
-                name: "shool",
+                name: "school",
                 validate: userSchool => {
                     if (userSchool) {
                         return true;
