@@ -24,5 +24,14 @@ npm start
 ```
 
 ## Usage
-:tv: [https://drive.google.com/file/d/1CP9U85HbmCFVF7PKkabTSw37ZruYWUgO/view?usp=sharing](https://drive.google.com/file/d/1CP9U85HbmCFVF7PKkabTSw37ZruYWUgO/view?usp=sharing)
+This application requires node.js. Run the following to begin:
+```
+node index.js
+```
+You will then be prompted to answer some information on your team that will display on the webpage out put located in the ./dist folder
+
+![Team-Profile](assets/Team-Profile-Generator.png)
+
+## Demo
+:tv: [Demo](https://drive.google.com/file/d/1CP9U85HbmCFVF7PKkabTSw37ZruYWUgO/view?usp=sharing) 
 
